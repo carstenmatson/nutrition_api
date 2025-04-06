@@ -5,7 +5,7 @@ services:
     plan: free
     runtime: python
     buildCommand: ""
-    startCommand: python server.py
+    startCommand: gunicorn server:app
     autoDeploy: true
     repo: https://github.com/carstenmatson/nutrition_api
     branch: main
