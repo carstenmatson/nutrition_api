@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: nutrition-ocr-api
+    env: python
+    plan: free
+    runtime: python
+    buildCommand: ""
+    startCommand: python server.py
+    autoDeploy: true
+    repo: https://github.com/carstenmatson/nutrition_api
+    branch: main
+    region: oregon
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10
