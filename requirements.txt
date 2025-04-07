@@ -1,7 +1,7 @@
-# requirements.txt
-Flask
-pytesseract
-opencv-python-headless
-Pillow
-numpy
-gunicorn
+Flask==3.1.0
+gunicorn==23.0.0
+requests==2.31.0
+pytesseract==0.3.13
+opencv-python-headless==4.11.0.86
+Pillow==11.1.0
+numpy==2.2.4
