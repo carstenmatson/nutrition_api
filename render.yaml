@@ -1,15 +1,7 @@
 services:
   - type: web
-    name: nutrition-ocr-api
-    env: python
+    name: ocr-service
+    env: docker
     plan: free
-    runtime: python
-    buildCommand: ""
-    startCommand: gunicorn server:app
+    dockerfilePath: ./Dockerfile
     autoDeploy: true
-    repo: https://github.com/carstenmatson/nutrition_api
-    branch: main
-    region: oregon
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10
