@@ -19,15 +19,15 @@ def analyze_image():
             return jsonify({"error": "Missing 'image_path' in request"}), 400
 
         image_url = data["image_path"]
-        user_id = data.get("user_id")  # Optional for Firebase
+        user_id = data.get("user_id")
 
         response = requests.get(image_url)
         if response.status_code != 200:
             return jsonify({"error": "Could not download image"}), 400
 
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp_file:
-            tmp_file.write(response.content)
-            tmp_path = tmp_file.name
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
+            tmp.write(response.content)
+            tmp_path = tmp.name
 
         if not is_barcode_or_label(tmp_path):
             return jsonify({
