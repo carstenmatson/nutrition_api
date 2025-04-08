@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 from ocr_utils import is_barcode_or_label, extract_protein_info
 import requests
 import tempfile
@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "\ud83d\udce6 Nutrition OCR API Ready", 200
+    return Response("Nutrition OCR API Ready 🚀", mimetype="text/plain")
 
 @app.route("/analyze", methods=["POST"])
 def analyze_image():
@@ -47,3 +47,4 @@ def analyze_image():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port, debug=False)
+
