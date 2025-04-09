@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import pytesseract
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"  # ✅ Required for Docker slim images
 import re
 import os
 import requests
@@ -108,3 +109,4 @@ def extract_protein_info(img_path: str, image_url: str = None, user_id: str = No
         "servings_per_container": servings_per_container,
         "total_protein_g": total_protein
     }
+
